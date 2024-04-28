@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="chessBoardPanel" min="-2" pref="751" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="undoButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <Component id="undoButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="chessBoardPanel" min="-2" pref="627" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="chessBoardPanel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_LayoutCodePre" type="java.lang.String" value="BoardRank boardRank = null ;&#xa;BoardFile boardFile = null;&#xa;//Color customColor1 = new Color(220, 190, 150); //beige&#xa;//Color customColor2 = new Color(129, 0, 0); //red&#xa;//boolean  isRed = true;&#xa;for (int row = 0; row &lt; 8; row++) {&#xa;    isRed=!isRed;&#xa;int col;&#xa;        for ( col = 0; col &lt; 8; col++) {&#xa;&#xa;            JButton chessPieceButton = new JButton();&#xa;            Color buttonColor;&#xa;            if(isRed){&#xa;            buttonColor = customColor2;&#xa;            isRed=false;&#xa;              }&#xa;           else{&#xa;            buttonColor = customColor1;&#xa;            isRed=true;&#xa;            }&#xa;            originalColors[row][col] = buttonColor;&#xa;            chessPieceButton.setBackground(buttonColor);&#xa;&#xa;            &#xa;            chessPieceButton.setBorderPainted(false);&#xa;            chessPieceButton.setOpaque(true);&#xa;chessPieceButton.addActionListener(new ActionListener() {&#xa;            @Override&#xa;            public void actionPerformed(ActionEvent e) {&#xa;               // System.out.println(&quot;Button clicked&quot;);&#xa;JButton pieceClicked = (JButton)e.getSource();&#xa;buttonAction(pieceClicked);&#xa;&#xa;                &#xa;                            &#xa;   &#xa;}&#xa;&#xa;        });&#xa;             &#xa;            &#xa;             &#xa;            chessBoardPanel.add(chessPieceButton);&#xa;            switch(row){&#xa;                        case 0:&#xa;                          boardRank = BoardRank.FIRST;  &#xa;                          break;&#xa;                        case 1:&#xa;                          boardRank = BoardRank.SECOND;&#xa;                          break;&#xa;                        case 2:&#xa;                          boardRank = BoardRank.THIRD; &#xa;                          break;&#xa;                        case 3:&#xa;                          boardRank = BoardRank.FORTH;&#xa;                          break;&#xa;                        case 4:&#xa;                          boardRank = BoardRank.FIFTH;&#xa;                          break;&#xa;                       case 5:&#xa;                          boardRank = BoardRank.SIXTH;&#xa;                          break;&#xa;                       case 6:&#xa;                          boardRank = BoardRank.SEVENTH;&#xa;                          break;&#xa;                       case 7:&#xa;                          boardRank = BoardRank.EIGHTH;   &#xa;                          break;&#xa;                       default:&#xa;                           break;&#xa;                    }&#xa;                    switch(col){&#xa;                        case 0:&#xa;                          boardFile = BoardFile.A;  &#xa;                          break;&#xa;                        case 1:&#xa;                          boardFile = BoardFile.B;&#xa;                          break;&#xa;                        case 2:&#xa;                          boardFile = BoardFile.C; &#xa;                          break;&#xa;                        case 3:&#xa;                          boardFile = BoardFile.D;&#xa;                          break;&#xa;                        case 4:&#xa;                          boardFile = BoardFile.E;&#xa;                          break;&#xa;                       case 5:&#xa;                          boardFile = BoardFile.F;&#xa;                          break;&#xa;                       case 6:&#xa;                          boardFile = BoardFile.G;&#xa;                          break;&#xa;                       case 7:&#xa;                          boardFile = BoardFile.H;   &#xa;                          break;&#xa;                       default:&#xa;                           break;&#xa;                    }&#xa;                  squares[row][col]=new Square(boardFile,boardRank);&#xa;                &#xa;&#xa;            chessPieceButtons[row][col] = chessPieceButton;&#xa;        }&#xa;    }&#xa;&#xa;ImageIcon blackPawnIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\BlackPawn.png&quot;);&#xa;ImageIcon whitePawnIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\WhitePawn.png&quot;);&#xa;ImageIcon blackBishopIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\BlackBishop.png&quot;);&#xa;ImageIcon whiteBishopIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\WhiteBishop.png&quot;);&#xa;ImageIcon blackKnightIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\BlackKnight.png&quot;);&#xa;ImageIcon whiteKnightIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\WhiteKnight.png&quot;);&#xa;ImageIcon blackRookIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\BlackRook.png&quot;);&#xa;ImageIcon whiteRookIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\WhiteRook.png&quot;);&#xa;ImageIcon blackKingIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\BlackKing.png&quot;);&#xa;ImageIcon whiteKingIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\WhiteKing.png&quot;);&#xa;ImageIcon blackQueenIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\BlackQueen.png&quot;);&#xa;ImageIcon whiteQueenIcon = new ImageIcon(&quot;C:\\Users\\Malak\\Desktop\\Studies\\Term 5\\Programming 2\\New folder\\WhiteQueen.png&quot;);&#xa;&#xa;&#xa;&#xa;for(int i=0;i&lt;8;i++){&#xa;chessPieceButtons[1][i].setIcon(whitePawnIcon);&#xa;chessPieceButtons[6][i].setIcon(blackPawnIcon);&#xa;}&#xa;chessPieceButtons[0][2].setIcon(whiteBishopIcon);&#xa;chessPieceButtons[0][5].setIcon(whiteBishopIcon);&#xa;chessPieceButtons[7][2].setIcon(blackBishopIcon);&#xa;chessPieceButtons[7][5].setIcon(blackBishopIcon);&#xa;&#xa;chessPieceButtons[0][1].setIcon(whiteKnightIcon);&#xa;chessPieceButtons[0][6].setIcon(whiteKnightIcon);&#xa;chessPieceButtons[7][1].setIcon(blackKnightIcon);&#xa;chessPieceButtons[7][6].setIcon(blackKnightIcon);&#xa;&#xa;chessPieceButtons[0][0].setIcon(whiteRookIcon);&#xa;chessPieceButtons[0][7].setIcon(whiteRookIcon);&#xa;chessPieceButtons[7][0].setIcon(blackRookIcon);&#xa;chessPieceButtons[7][7].setIcon(blackRookIcon);&#xa;&#xa;chessPieceButtons[0][4].setIcon(whiteKingIcon);&#xa;chessPieceButtons[7][4].setIcon(blackKingIcon);&#xa;&#xa;chessPieceButtons[0][3].setIcon(whiteQueenIcon);&#xa;chessPieceButtons[7][3].setIcon(blackQueenIcon);"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="8"/>
+        <Property name="rows" type="int" value="8"/>
+      </Layout>
+    </Container>
+    <Component class="javax.swing.JButton" name="undoButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Undo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="undoButtonActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
